@@ -27,13 +27,19 @@ const cargarCreditoSimulado = () => {
     const credito = new creditoS(cargaImporteSimulado.value, cargaMesesSimulado.value,)
     let mostraCsimulado = document.getElementById("cardSimulacion")
     mostraCsimulado.innerHTML = ""
+    let tasaInteres = 0.05
+    let pagoMensual = Math.round(credito.importe * (1 + tasaInteres * credito.meses)) / credito.meses
+    let totalaPagar = pagoMensual * credito.meses
     let card = document.createElement("div")
-    card.className = "card"
+    card.className = "cardCreditos";
     card.innerHTML = `
-                                            <h2>Simulacion de Prestamo Personal</h2>
-                                            <h3 class="card-title">Monto Solicitado $: ${credito.importe}</h3>
-                                            <h3 class="card-title">Pago de $: ${credito.importe / credito.meses}</h3>
-                                            <h4>Meses : ${credito.meses}</h4>`
+                    <h4>Simulacion de Prestamo Personal</h4>
+                    <h5 class="card-title">Monto Solicitado $: ${credito.importe}</h5>
+                    <h5 class="card-title">Pago Mensual $: ${pagoMensual}</h5>
+                    <h5>Meses : ${credito.meses}</h5>
+                    <h5>Total a Pagar $: ${totalaPagar}</h5>
+                    <h5>Interés aplicado $: ${(totalaPagar - credito.importe)}</h5>`
+
     mostraCsimulado.appendChild(card)
 }
 const cerrarSimulador = document.getElementById("cerrarCimulador")
@@ -138,16 +144,21 @@ const tituloModal = document.getElementById("creditosSolicitadosPor")
 tituloModal.innerText = "Creditos Solicitados Por :" + nombreUsuario
 let mostrarCOtorgado = document.getElementById("creditosOtorgados")
 mostrarCOtorgado.innerHTML = ""
+
 creditosAprovados.forEach(creditoA => {
+    let tasaInteres = 0.05
+    let pagoMensual = Math.round(creditoA.importe * (1 + tasaInteres * creditoA.meses)) / creditoA.meses
+    let totalaPagar = pagoMensual * creditoA.meses
     let card = document.createElement("div")
-    card.className = "card"
+    card.className = "cardAsesores";
     card.innerHTML = `
-                                            <h5 class="card-title">Monto Solicitado $: ${creditoA.importe}</h5>
-                                        <h5 class="card-title">Pago Mensual $: ${creditoA.importe / creditoA.meses + creditoA.importe / creditoA.meses}</h5>
-                                            <h5 class="card-title">Intereses: ${creditoA.importe / creditoA.meses * 21 / 100}% Mensuales</h5>
-                                            <h5>Meses : ${creditoA.meses}</h5>
-                                            <h5>Fecha de Emision : ${creditoA.fecha}</h5>
-                                            `
+                     <h4>Prestamos Personales</h4>
+                    <h5 class="card-title">Monto Solicitado $: ${creditoA.importe}</h5>
+                    <h5 class="card-title">Pago Mensual $: ${pagoMensual}</h5>
+                    <h5>Meses : ${creditoA.meses}</h5>
+                    <h5>Total a Pagar $: ${totalaPagar}</h5>
+                    <h5>Interés aplicado $: ${(totalaPagar - creditoA.importe)}</h5>
+                    <h5>Fecha de Emision : ${creditoA.fecha}</h5>`
 
 
     const botonBorrar = document.createElement("button")
@@ -156,7 +167,26 @@ creditosAprovados.forEach(creditoA => {
     botonBorrar.onclick = () => {
         const nuevosCreditos = creditosAprovados.filter(c => c.id !== creditoA.id)
         localStorage.setItem("creditoSacado", JSON.stringify(nuevosCreditos))
-         card.remove(); 
+        Swal.fire({
+            title: "Deseas eliminar el prestamo?",
+            text: "Si aceptas se borrara el prestamo solicitado",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si borrar"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Confirmacion!",
+                    text: "El prestamo fue borrado.",
+                    icon: "success"
+                }).then(() => {
+                    card.remove()
+                    location.reload()
+                })
+            }
+        });
     }
 
     card.appendChild(botonBorrar)
@@ -194,15 +224,19 @@ inputbuscar.onchange = () => {
     let mostrarCOtorgado = document.getElementById("buscrcreditos")
     mostrarCOtorgado.innerHTML = ""
     busqueda.forEach(creditosAprovados => {
+        let tasaInteres = 0.05
+        let pagoMensual = Math.round(creditosAprovados.importe * (1 + tasaInteres * creditosAprovados.meses)) / creditosAprovados.meses
+        let totalaPagar = pagoMensual * creditosAprovados.meses
         let card = document.createElement("div")
-        card.className = "card"
+        card.className = "cardAsesores";
         card.innerHTML = `
-                                            <h2>Prestamos Personales</h2>
-                                            <h5 class="card-title">Monto Solicitado $: ${creditosAprovados.importe}</h5>
-                                        <h5 class="card-title">Pago Mensual $: ${creditosAprovados.importe / creditosAprovados.meses + creditosAprovados.importe / creditosAprovados.meses}</h5>
-                                            <h5 class="card-title">Intereses: ${creditosAprovados.importe / creditosAprovados.meses * 21 / 100}% Mensuales</h5>
-                                            <h5>Meses : ${creditosAprovados.meses}</h5>
-                                            <h5>Fecha de Emision : ${creditosAprovados.fecha}</h5>`
+                       <h4>Prestamos Personales</h4>
+                    <h5 class="card-title">Monto Solicitado $: ${creditosAprovados.importe}</h5>
+                    <h5 class="card-title">Pago Mensual $: ${pagoMensual}</h5>
+                    <h5>Meses : ${creditosAprovados.meses}</h5>
+                    <h5>Total a Pagar $: ${totalaPagar}</h5>
+                    <h5>Interés aplicado $: ${(totalaPagar - creditosAprovados.importe)}</h5>
+                    <h5>Fecha de Emision : ${creditosAprovados.fecha}</h5>`
         mostrarCOtorgado.appendChild(card)
     })
 }

@@ -24,23 +24,18 @@
 .contenedorUnico {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* dos columnas iguales */
     grid-auto-rows: auto;
     gap: 20px;
-    /* espacio entre filas y columnas */
     margin: 50px 25%;
     padding: 2%;
     border: 5px black solid;
     justify-items: center;
-    /* centra cada item horizontalmente */
     align-items: center;
-    /* centra verticalmente */
 }
 
 .contenedorUnico .item {
     display: flex;
     flex-direction: column;
-    /* card arriba, botón abajo */
     align-items: center;
     gap: 10px;
 }
@@ -55,18 +50,25 @@
 
 .contenedorUnico .item.ultimo {
     grid-column: span 2;
-    /* ocupa las dos columnas */
 }
 
 .cardAsesores {
     display: grid;
     grid-template-columns: 1fr;
-    /* dos columnas iguales */
+
     grid-auto-rows: auto;
     gap: 20px;
-    /* espacio entre filas y columnas */
     margin: 50px 25%;
     padding: 2%;
     border: 5px black solid;
-    /* centra verticalmente */
+
+}
+.cardCreditos{
+    font-size: px;
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 20px;
+    border: 5px black solid;
+    justify-items: center;
+    align-items: center;
 }
