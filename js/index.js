@@ -25,5 +25,28 @@ formulario.addEventListener("submit", function (event) {
     verificarUsuario(nombre, pass)
 
 })
-
+const borrarUsuario = document.getElementById("botonBorrarUsuario")
+borrarUsuario.onclick = () => {
+    Swal.fire({
+        title: "Deseas eliminar el usuario?",
+        text: "Si aceptas se borraran usuario y contraseña",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si borrar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Confirmacion!",
+                text: "Todos los datos fueron borrados.",
+                icon: "success"
+            }).then(() => {
+                localStorage.removeItem("usuario")
+                localStorage.removeItem("pass")
+                location.reload()
+            })
+        }
+    });
+}
 
