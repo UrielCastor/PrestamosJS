@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- font awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <!-- BS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -21,9 +21,9 @@
 
     <h1 class="tituloDashboard" id="tituloUsuario">Proyecto Credito</h1>
 
-    <section  class="contenedorUnico">
-    
-    <h5 class="item ultimo fa fa-money" id="mostrarsaldocuenta">saldo en cuenta:</h5>
+    <section class="contenedorUnico">
+
+        <h5 class="item ultimo fa fa-money" id="mostrarsaldocuenta">saldo en cuenta:</h5>
         <div class="item">
             <div class="card">
                 <h5 class="fa fa-check-circle"></h5>
@@ -54,7 +54,7 @@
 
         <div class="item">
             <div class="card">
-                <h5 class="fa fa-search-plus" ></h5>
+                <h5 class="fa fa-search-plus"></h5>
             </div>
             <button class="btn btn-warning" id="Modal" data-bs-toggle="modal" data-bs-target="#modalBuscador"
                 type="submit">
@@ -73,14 +73,15 @@
             <div class="card">
                 <h5 class="fa fa-users"></h5>
             </div>
-            <a class="btn btn-secondary"  href="#">Ver Asesores</a>
+            <a class="btn btn-secondary" id="" data-bs-toggle="modal" data-bs-target="#modalAsesores" type="submit">Ver
+                Asesores</a>
         </div>
         <div class="item ultimo">
             <div class="card ">
                 <h5 class="fa fa-sign-out"></h5>
             </div>
-            
-            <a class="btn btn-danger"  href="../index.html">Salir</a>
+
+            <a class="btn btn-danger" href="../index.html">Salir</a>
         </div>
     </section>
     <!-- Modal simulador de creditos-------------------------------------------------------------------------  -->
@@ -132,7 +133,6 @@
             </form>
         </div>
     </section>
-    <!--Fin Modal simulador de creditos-------------------------------------------------------------------------  -->
     <!-- Modal Solicitud de creditos-------------------------------------------------------------------------  -->
     <section>
         <div id="simuladormodal">
@@ -165,7 +165,7 @@
                                         <div class="col-md">
                                             <div class="form-floating">
                                                 <select class="form-select" id="cargaMesesCargado">
-                                                    <option selected>Cuotas</option>
+                                                    <option value="" selected disabled>Cuotas</option>
                                                     <option value="1">1</option>
                                                     <option value="6">6</option>
                                                     <option value="12">12</option>
@@ -202,7 +202,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="creditosOtorgados">
-                        
+
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -236,7 +236,26 @@
             </div>
         </div>
     </div>
+    <!-- Modal Visualizacion de asesores-------------------------------------------------------------------------  -->
+    <div class="modal fade" id="modalAsesores" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalAsesores">Asesores Dispoibles</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="asesoresCargado">
 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Swet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Scritp JS -->

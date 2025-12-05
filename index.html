@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <!-- BS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -14,11 +16,11 @@
     <title>Proyecto Credito</title>
 </head>
 
-<body >
+<body>
 
     <h1 class="tituloindex">Proyecto Credito</h1>
     <section class="contenedorUnico">
-        
+
         <form id="formularioIngreso">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Usuario</label>
@@ -28,12 +30,13 @@
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="passIngreso">
-                <div id="emailHelp" class="form-text">Ingrese el Password (Password admin)</div>
+                <div id="emailHelp" class="form-text">Ingrese el Password (Password 1234)</div>
             </div>
             <button type="submit" id="botonIngreso" class="btn btn-primary">Ingresar</button>
         </form>
     </section>
-
+    <!-- Swet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Scritp JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
