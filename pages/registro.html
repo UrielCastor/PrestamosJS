@@ -10,9 +10,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- JS -->
-    <script defer src="./js/index.js"></script>
+    <script defer src="../js/registro.js"></script>
     <title>Proyecto Credito</title>
 </head>
 
@@ -21,19 +21,17 @@
     <h1 class="tituloindex">Proyecto Credito</h1>
     <section class="contenedorUnico">
 
-        <form class="" id="formularioIngreso">
+        <form class="" id="formularioRegistro">
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuarioIngreso" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">Ingrese el usuario (usuario admin)</div>
+                <label for="exampleInputEmail1" class="form-label">Ingrese su Usuario</label>
+                <input type="text" class="form-control" id="usuarioRegistro" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="passIngreso">
-                <div id="emailHelp" class="form-text">Ingrese el Password (Password 1234)</div>
+                <label for="exampleInputPassword1" class="form-label">Ingrese su Password</label>
+                <input type="password" name="password" class="form-control" id="passRegistro">
             </div>
-            <button type="submit" id="botonIngreso" class="btn btn-success">Ingresar</button>
-            <a href="./pages/registro.html" class="btn btn-info" role="button">Registrarse</a>
+            <button type="submit" id="botonRegistro" class="btn btn-info">Registrar</button>
+            <a href="../index.html" class="btn btn-warning" role="button">Regresar</a>
 
         </form>
     </section>
