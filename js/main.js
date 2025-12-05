@@ -59,7 +59,7 @@ const sacarCredito = document.getElementById("solicitarboton")
 class CreditoSolicitar {
     static id = 0;
     constructor(importe, meses, fecha,) {
-
+        this.id = ++CreditoSolicitar.id;
         this.importe = importe,
             this.meses = meses,
             this.fecha = fecha
@@ -70,6 +70,9 @@ let cargaImporte = document.getElementById("cargaImporteCargado")
 let cargarMeses = document.getElementById("cargaMesesCargado")
 let cargarFecha = document.getElementById("cargaFechaCargado")
 const creditoSacado = JSON.parse(localStorage.getItem("creditoSacado")) || []
+if (creditoSacado.length > 0) {
+    CreditoSolicitar.id = Math.max(creditoSacado.map(c => c.id));
+}
 const cargarCreditoSacado = () => {
     if (!cargaImporte.value || !cargarMeses.value) {
         Swal.fire({
@@ -149,14 +152,11 @@ creditosAprovados.forEach(creditoA => {
 
     const botonBorrar = document.createElement("button")
     botonBorrar.textContent = "Borrar"
-    botonBorrar.className = "btn btn-danger btn-s mt-2"
+    botonBorrar.className = "btn btn-danger"
     botonBorrar.onclick = () => {
-        // Filtramos el array para quitar este crédito
         const nuevosCreditos = creditosAprovados.filter(c => c.id !== creditoA.id)
-        // Guardamos en localStorage
         localStorage.setItem("creditoSacado", JSON.stringify(nuevosCreditos))
-        // Recargamos la página para ver cambios
-        location.reload()
+         card.remove(); 
     }
 
     card.appendChild(botonBorrar)
