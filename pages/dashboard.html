@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <!-- BS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -21,19 +23,19 @@
 
     <section  class="contenedorUnico">
     
-    <h5 class="item ultimo" id="mostrarsaldocuenta">saldo en cuenta:</h5>
+    <h5 class="item ultimo fa fa-money" id="mostrarsaldocuenta">saldo en cuenta:</h5>
         <div class="item">
             <div class="card">
-                <h5>Simular</h5>
+                <h5 class="fa fa-check-circle"></h5>
             </div>
-            <i class="fa-chisel fa-regular fa-address-card"></i>
+
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#simularcre" type="button">
                 Simular Credito
             </button>
         </div>
         <div class="item">
             <div class="card">
-                <h5>Solicitar</h5>
+                <h5 class="fa fa-check-square"></h5>
             </div>
             <button class="btn btn-success" id="solicitarCredito" data-bs-toggle="modal" data-bs-target="#sacarcred"
                 type="button">
@@ -42,7 +44,7 @@
         </div>
         <div class="item">
             <div class="card">
-                <h5>Pedidos</h5>
+                <h5 class="fa fa-database"></h5>
             </div>
             <button class="btn btn-info" id="creditosPedidos" data-bs-toggle="modal"
                 data-bs-target="#modalVisualizacion" type="submit">
@@ -52,7 +54,7 @@
 
         <div class="item">
             <div class="card">
-                <h5>Buscar</h5>
+                <h5 class="fa fa-search-plus" ></h5>
             </div>
             <button class="btn btn-warning" id="Modal" data-bs-toggle="modal" data-bs-target="#modalBuscador"
                 type="submit">
@@ -61,24 +63,24 @@
         </div>
         <div class="item">
             <div class="card">
-                <h5>Borrar</h5>
+                <h5 class="fa fa-trash"></h5>
             </div>
             <button class="btn btn-dark" id="borrarPrestamo" type="button">
-                Borrar Creditos
+                Borrar Todo
             </button>
         </div>
         <div class="item">
             <div class="card">
-                <h5>Asesores</h5>
+                <h5 class="fa fa-users"></h5>
             </div>
-            <a class="btn btn-secondary" href="#">Ver Asesores</a>
+            <a class="btn btn-secondary"  href="#">Ver Asesores</a>
         </div>
         <div class="item ultimo">
             <div class="card ">
-                <h5>Salir</h5>
+                <h5 class="fa fa-sign-out"></h5>
             </div>
-            <i class="fa-sharp fa-solid fa-user"></i>
-            <a class="btn btn-danger " href="../index.html">Salir</a>
+            
+            <a class="btn btn-danger"  href="../index.html">Salir</a>
         </div>
     </section>
     <!-- Modal simulador de creditos-------------------------------------------------------------------------  -->
