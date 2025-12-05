@@ -2,6 +2,32 @@
 const tituloDinamico = document.getElementById("tituloUsuario")
 const nombreUsuario = JSON.parse(localStorage.getItem("usuario"))
 tituloDinamico.innerHTML = `Bienvenido <i class=" fa fa-user-circle"> ${nombreUsuario}</i> `
+/////////////////////////// Busqueda de prestamos///////////////////////////////////////////////////////////////////////////
+let modalAsesores = document.getElementById("modalAsesores")
+let modalAsesoresCargados = document.getElementById("asesoresCargado")
+const URL = "https://jsonplaceholder.typicode.com/users"
+function obtenerUsuarios() {
+    fetch(URL)
+        .then(response => response.json())
+        .then(data => {
+            mostrarAsesores(data)
+        })
+}
+
+function mostrarAsesores(listaAsesores) {
+    listaAsesores.forEach(usuarios => {
+        let card = document.createElement("div")
+        card.className = "cardAsesores";
+        card.innerHTML = ` <i class="fa fa-id-card aria-hidden="true"> Nombre: ${usuarios.name}</i>
+                               <i class="fa fa-user-circle"> Usuario: ${usuarios.username}</i>
+                               <i class="fa fa-envelope"> E-mail: ${usuarios.email}</i>
+                               <i class="fa fa-street-view"> Sucursal: ${usuarios.address.city}</i>
+                               <i class="fa fa-mobile"> Contacto: ${usuarios.address.zipcode}</i>`
+        modalAsesoresCargados.appendChild(card)
+    })
+
+}
+obtenerUsuarios()
 ///////////////////////////Simulacion de creditos///////////////////////////////////////////////////////////////////////////
 const simularCredito = document.getElementById("simularCredito")
 class creditoS {
@@ -246,28 +272,4 @@ const sumaImportes = creditosAprovados.reduce((acumulado, credito) => {
     return acumulado + Number(credito.importe)
 }, 0)
 mostrarsaldocuenta.innerHTML = `Su saldo actual es <i class="fa-solid fa-dollar-sign"> ${sumaImportes}</i>`
-/////////////////////////// Busqueda de prestamos///////////////////////////////////////////////////////////////////////////
-let modalAsesores = document.getElementById("modalAsesores")
-const URL = "https://jsonplaceholder.typicode.com/users"
-function obtenerUsuarios() {
-    fetch(URL)
-        .then(response => response.json())
-        .then(data => {
-            mostrarAsesores(data)
-        })
-}
 
-function mostrarAsesores(listaAsesores) {
-    listaAsesores.forEach(usuarios => {
-        let card = document.createElement("div")
-        card.className = "cardAsesores";
-        card.innerHTML = ` <i class="fa fa-id-card aria-hidden="true"> Nombre: ${usuarios.name}</i>
-                               <i class="fa fa-user-circle"> Usuario: ${usuarios.username}</i>
-                               <i class="fa fa-envelope"> E-mail: ${usuarios.email}</i>
-                               <i class="fa fa-street-view"> Sucursal: ${usuarios.address.city}</i>
-                               <i class="fa fa-mobile"> Contacto: ${usuarios.address.zipcode}</i>`
-        asesoresCargado.appendChild(card)
-    })
-
-}
-obtenerUsuarios()
